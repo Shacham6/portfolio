@@ -39,6 +39,9 @@ const { Content } = await entry.render();
         {games.map((game) => (
           <section class="game">
             <div class="game-header">
+              {game.thumbnail && (
+                <img class="game-icon" src={game.thumbnail} alt="" />
+              )}
               <h2>{game.name}</h2>
               {game.link && <a href={game.link} target="_blank" rel="noopener">taptap.io </a>}
             </div>
@@ -160,9 +163,17 @@ const { Content } = await entry.render();
 
   .game-header {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 1rem;
     margin-bottom: 0.75rem;
+  }
+
+  .game-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
   }
 
   .game-header h2 {
