@@ -1,0 +1,105 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { title, description, thumbnail, tags, date } = project.data;
+---
+
+<a href={`/projects/${project.slug}`} class="card">
+  <div class="thumb">
+    <img src={thumbnail} alt={title} loading="lazy" />
+  </div>
+  <div class="info">
+    <h2>{title}</h2>
+    <p class="desc">{description}</p>
+    <div class="meta">
+      <time datetime={date.toISOString()}>
+        {date.toLocaleDateString("en-US", { year: "numeric", month: "short" })}
+      </time>
+      {tags.length > 0 && (
+        <span class="tags">
+          {tags.map((t) => <span class="tag">{t}</span>)}
+        </span>
+      )}
+    </div>
+  </div>
+</a>
+
+<style>
+  .card {
+    display: block;
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .card:hover {
+    border-color: #444;
+    transform: translateY(-3px);
+  }
+
+  .thumb {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #111;
+  }
+
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .info {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+
+  .desc {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: #555;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background: #1a1a2e;
+    color: #8888cc;
+    padding: 0.1rem 0.45rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+  }
+</style>

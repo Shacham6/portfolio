@@ -1,0 +1,39 @@
+---
+export interface Props {
+  images: string[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="gallery">
+  {
+    images.map((src) => (
+      <figure>
+        <img src={src} alt="" loading="lazy" />
+      </figure>
+    ))
+  }
+</div>
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  figure {
+    margin: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #111;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

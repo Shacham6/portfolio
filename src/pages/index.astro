@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+// featured first, then by date descending
+const sorted = projects.sort((a, b) => {
+  if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+  return b.data.date.valueOf() - a.data.date.valueOf();
+});
+---
+
+<BaseLayout title="Projects">
+  <section class="hero">
+    <h1>Side Projects</h1>
+    <p class="subtitle">Things I build for the love of building.</p>
+  </section>
+
+  <div class="grid">
+    {sorted.map((p) => <ProjectCard project={p} />)}
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    margin-bottom: 3rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: #666;
+    font-size: 1.1rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 400px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
