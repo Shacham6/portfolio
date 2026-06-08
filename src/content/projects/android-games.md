@@ -6,36 +6,55 @@ date: 2024-03-01  # TODO(AI): We'll have to fix the dates
 featured: false
 ---
 
-I have developed multiple Android games using the Godot game engine. These games we're later published to the Google Play Store and one of them (Pool Puzzle) even got downloaded a couple of times!
+I have developed multiple Android games using the Godot game engine. These games were later published to the Google Play Store and one of them (Pool Puzzle) even got downloaded a couple of times!
 
-Unfortunately though, that fun ride ended because - as it turns out - not having an activity on that account for a year resulted in Google *deleting it completely; without leaving me any ability to contest it or get a refund.* I'm not a fan of that policy, obviously.
+Unfortunately though, that fun ride ended because — as it turns out — not having activity on that account for a year resulted in Google *deleting it completely; without leaving me any ability to contest it or get a refund.* I'm not a fan of that policy, obviously.
 
-Consider this page the graveyard of those projects. For the meanwhile, extra proof of some of them persist in [taptap.io](https://taptap.io). Not sure what that website even is, but thanks.
+Consider this page the graveyard of those projects. For the meanwhile, extra proof of some of them persists on [taptap.io](https://taptap.io). Not sure what that website even is, but thanks.
 
 ## Pool Puzzle
 
+Become a master pool player, nailing each and every impossible hit!
+
+A round in this game is comprised of 3 things: A blue ball, a red ball, and a hole. You need to make the red ball fall into the hole. The catch — you can only control the blue ball, and it cannot fall into the hole itself!
+
+Each round is randomized, providing countless ways to stress your skill level. Flex your engineering capabilities to get the high-score!
+
 - [taptap.io link](https://www.taptap.io/app/312579)
 
-<!-- TODO(AI): Scrape the page https://www.taptap.io/app/312579 for the description, images and icon. -->
+![Pool Puzzle Icon](/projects/android-games/pool-puzzle/icon.png)
 
+![Pool Puzzle Screenshot 1](/projects/android-games/pool-puzzle/screenshot-1.png)
+![Pool Puzzle Screenshot 2](/projects/android-games/pool-puzzle/screenshot-2.png)
+![Pool Puzzle Screenshot 3](/projects/android-games/pool-puzzle/screenshot-3.png)
 
 ## Unswarm
 
+Earth is under attack! Hostile enemy ships are perpetually thrust upon our defenses. In desperation, earth retaliated with their strongest weapon — you.
+
 - [taptap.io link](https://www.taptap.io/app/33571672)
 
-<!-- TODO(AI): Scrape the page https://www.taptap.io/app/33571672 for the description, images and icon.  -->
+![Unswarm Icon](/projects/android-games/unswarm/icon.png)
 
-<!-- for both Pool Puzzle and Unswarm i basically want an imitation of how the play store would show it. i.e icon; gallery; description underneath big title. tranditional layout. -->
+![Unswarm Screenshot 1](/projects/android-games/unswarm/screenshot-1.png)
+![Unswarm Screenshot 2](/projects/android-games/unswarm/screenshot-2.png)
+![Unswarm Screenshot 3](/projects/android-games/unswarm/screenshot-3.png)
 
-## Simon Piano
+## Music Gym
 
-<!-- TODO(AI): Clean the grammar and text here. -->
+This is the one project I did not publish simply because it did not live up to my standards. Even so, it's a project that I ended up using quite a lot, so I ended up being quite proud of it.
 
-This the one project I did not publish simply because it did not live up to my standards. Even so it's a project that I ended up using quite a lot, so I ended up being quite proud of it.
+It's an education game. It's meant to teach the player to identify notes by ear through the mechanics of 'Simon', and also to teach the player the names of the piano notes themselves using short mini-games.
 
-It's an education game. It's meant to teach the player to identify notes by ear through the mechanics of 'Simon'; and also to teach the player the names of the piano notes themselves using short mini-games.
+I didn't like the UI that I ended up producing; the game looked rather unpleasant for my liking. But regardless, it has served its role.
 
-I didn't like the UI that I ended up producing; the game looked rather unpleasant for my liking. But regardless it has served its role.
+![Music Gym Main Menu](/projects/android-games/music-gym/main-menu.jpg)
 
-<!-- TODO(AI): I have tool multiple screenshots of the game and sent them here. They're saved in a zip file at ~/Downloads/_Pictures-24-09-2025.zip ; rename the pictures appropriately based on content; and give this app the same treatment that the others received. -->
+![Music Gym Simon Setup](/projects/android-games/music-gym/simon-setup.jpg)
+![Music Gym Simon Correct](/projects/android-games/music-gym/simon-correct.jpg)
+![Music Gym Simon Wrong](/projects/android-games/music-gym/simon-wrong.jpg)
+
+![Music Gym Note Matching How to Play](/projects/android-games/music-gym/note-matching-how-to-play.jpg)
+![Music Gym Note Matching Gameplay C](/projects/android-games/music-gym/note-matching-gameplay-c.jpg)
+![Music Gym Note Matching Gameplay D](/projects/android-games/music-gym/note-matching-gameplay-d.jpg)
 
