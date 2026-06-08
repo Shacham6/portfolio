@@ -4,65 +4,177 @@ export interface Props {
 }
 
 const { images } = Astro.props;
+const id = `carousel-${Math.random().toString(36).slice(2, 9)}`;
 ---
 
-<div class="carousel" tabindex="0">
-  {
-    images.map((src) => (
-      <figure>
-        <img src={src} alt="" loading="lazy" />
-      </figure>
-    ))
-  }
+<div class="carousel" id={id}>
+  <div class="main">
+    <button class="arrow left" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <div class="main-image">
+      <img src={images[0]} alt="" />
+    </div>
+    <button class="arrow right" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+  </div>
+
+  <div class="thumbs">
+    {
+      images.map((src, i) => (
+        <button class={`thumb ${i === 0 ? "active" : ""}`} data-index={i}>
+          <img src={src} alt="" loading="lazy" />
+        </button>
+      ))
+    }
+  </div>
 </div>
+
+<script>
+  document.querySelectorAll(".carousel").forEach((el) => {
+    const mainImg = el.querySelector(".main-image img");
+    const thumbs = el.querySelectorAll(".thumb");
+    const prevBtn = el.querySelector(".arrow.left");
+    const nextBtn = el.querySelector(".arrow.right");
+    let current = 0;
+
+    function goTo(index) {
+      if (index < 0) index = thumbs.length - 1;
+      if (index >= thumbs.length) index = 0;
+      current = index;
+      mainImg.src = thumbs[current].querySelector("img").src;
+      thumbs.forEach((t) => t.classList.remove("active"));
+      thumbs[current].classList.add("active");
+      thumbs[current].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }
+
+    prevBtn.addEventListener("click", () => goTo(current - 1));
+    nextBtn.addEventListener("click", () => goTo(current + 1));
+    thumbs.forEach((btn, i) => btn.addEventListener("click", () => goTo(i)));
+
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") goTo(current - 1);
+      if (e.key === "ArrowRight") goTo(current + 1);
+    });
+  });
+</script>
 
 <style>
   .carousel {
+    margin: 1rem 0 2rem;
+  }
+
+  .main {
+    position: relative;
+    width: 100%;
+    max-height: 520px;
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
-    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-image {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+  }
+
+  .main-image img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    backdrop-filter: blur(4px);
+  }
+
+  .arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .arrow.left {
+    left: 12px;
+  }
+
+  .arrow.right {
+    right: 12px;
+  }
+
+  .thumbs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    padding: 0.75rem 0;
     scroll-behavior: smooth;
-    padding: 0.5rem 0 1.5rem;
-    -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: #333 transparent;
   }
 
-  .carousel::-webkit-scrollbar {
-    height: 6px;
+  .thumbs::-webkit-scrollbar {
+    height: 4px;
   }
 
-  .carousel::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .carousel::-webkit-scrollbar-thumb {
+  .thumbs::-webkit-scrollbar-thumb {
     background: #333;
-    border-radius: 3px;
+    border-radius: 2px;
   }
 
-  figure {
+  .thumb {
     flex: 0 0 auto;
-    scroll-snap-align: center;
-    width: min(80vw, 420px);
-    margin: 0;
-    border-radius: 10px;
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
     overflow: hidden;
+    border: 2px solid transparent;
     background: #111;
+    cursor: pointer;
+    padding: 0;
+    transition: border-color 0.15s, opacity 0.15s;
+    opacity: 0.5;
   }
 
-  img {
+  .thumb.active {
+    border-color: #6688ff;
+    opacity: 1;
+  }
+
+  .thumb:hover {
+    opacity: 0.8;
+  }
+
+  .thumb img {
     width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 9 / 16;
+    height: 100%;
     object-fit: cover;
-  }
-
-  @media (min-width: 768px) {
-    figure {
-      width: min(50vw, 360px);
-    }
+    display: block;
   }
 </style>
