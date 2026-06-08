@@ -147,6 +147,29 @@ const { Content } = await entry.render();
     color: #6688ff;
   }
 
+  .repo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.7rem;
+    background: #1a1a2e;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #8888cc;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .repo-link:hover {
+    background: #252545;
+    color: #aaaadd;
+  }
+
+  .repo-link svg {
+    flex-shrink: 0;
+  }
+
   .games-section {
     margin: 2.5rem 0;
   }
