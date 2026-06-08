@@ -1,0 +1,35 @@
+---
+title: "Story Reactor"
+description: "'Writing platform' with an embedded AI agent."
+tags: ["golang", "html", "javascript", "custom ai agent", "ai-assisted tooling"]
+date: 2024-06-20 # TODO(AI): We'll have to fix the dates
+featured: false
+---
+
+import Carousel from "../../components/Carousel.astro";
+
+'Story Reactor' is how I try to *healthily* use AI into help me get into writing.
+
+It's a writing platform with an embedded AI agent that has full context of your story. It acts as a beta reader and developmental editor. Use it by asking questions - *any questions* - about narrative structure, pacing, prose, or character arcs, and get back actionable suggestions.
+
+The website is built with infinite scroll in mind. If I scroll up - I'll be back at the first chapter. Even still it loads instantly exactly at the current revision.
+
+Features:
+
+- An efficient editor for writing.
+- A revision system so that previous changes are not lost. Can mark revisions as 'protected' in order to prevent them from being auto-deleted after culminating 50>.
+- An integrate AI agent that can help you write your dream story and get feedback quickly. It...
+  - Gets the whole context of the story using tiered compacting.
+  - Can offer high-level feedback on the writing as a whole...
+  - ...or feedback on specific paragraphs.
+  - It can even make suggestions. Efficient for rapidly fixing those typos!
+- The project's using OpenRouter which means we can open to experiment with different models, no matter the providers' API.
+- ...We even have A/B tests!
+
+<Carousel images={[
+  "/projects/story-reactor/writer_writing.png",
+  "/projects/story-reactor/writer_getting_answers.png",
+  "/projects/story-reactor/writer_feedback_showcase.png",
+  "/projects/story-reactor/writer_suggestions.png",
+  "/projects/story-reactor/writer_revision_menu.png"
+]} />
