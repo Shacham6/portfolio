@@ -3,7 +3,7 @@ import BaseLayout from "./BaseLayout.astro";
 import Gallery from "../components/Gallery.astro";
 import VideoEmbed from "../components/VideoEmbed.astro";
 const { entry } = Astro.props;
-const { title, description, gallery, video, tags, date } = entry.data;
+const { title, description, gallery, video, tags, date, games } = entry.data;
 const { Content } = await entry.render();
 ---
 
@@ -28,6 +28,21 @@ const { Content } = await entry.render();
     {video && <VideoEmbed url={video} />}
 
     {gallery && gallery.length > 0 && <Gallery images={gallery} />}
+
+    {games && games.length > 0 && (
+      <div class="games-section">
+        {games.map((game) => (
+          <section class="game">
+            <div class="game-header">
+              <h2>{game.name}</h2>
+              {game.link && <a href={game.link} target="_blank" rel="noopener">taptap.io </a>}
+            </div>
+            {game.description && <p class="game-desc">{game.description}</p>}
+            {game.gallery && game.gallery.length > 0 && <Gallery images={game.gallery} />}
+          </section>
+        ))}
+      </div>
+    )}
 
     <div class="content">
       <Content />
@@ -126,5 +141,49 @@ const { Content } = await entry.render();
 
   .content a {
     color: #6688ff;
+  }
+
+  .games-section {
+    margin: 2.5rem 0;
+  }
+
+  .game {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #222;
+  }
+
+  .game:last-child {
+    border-bottom: none;
+  }
+
+  .game-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .game-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .game-header a {
+    color: #6688ff;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .game-header a:hover {
+    text-decoration: underline;
+  }
+
+  .game-desc {
+    color: #aaa;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
   }
 </style>

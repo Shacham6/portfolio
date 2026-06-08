@@ -11,6 +11,16 @@ const projects = defineCollection({
     featured: z.boolean().default(false),
     tags: z.array(z.string()).default([]),
     date: z.date(),
+    games: z
+      .array(
+        z.object({
+          name: z.string(),
+          description: z.string().optional(),
+          link: z.string().url().optional(),
+          gallery: z.array(z.string()),
+        })
+      )
+      .optional(),
   }),
 });
 

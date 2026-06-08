@@ -4,6 +4,33 @@ description: "Collection of small Android games built with the Godot game engine
 tags: ["android", "game", "gamedev", "godot", "gdscript"]
 date: 2024-03-01  # TODO(AI): We'll have to fix the dates
 featured: false
+games:
+  - name: "Pool Puzzle"
+    description: "Become a master pool player, nailing each and every impossible hit! A round in this game is comprised of 3 things: A blue ball, a red ball, and a hole. You need to make the red ball fall into the hole. The catch — you can only control the blue ball, and it cannot fall into the hole itself! Each round is randomized, providing countless ways to stress your skill level. Flex your engineering capabilities to get the high-score!"
+    link: "https://www.taptap.io/app/312579"
+    gallery:
+      - /projects/android-games/pool-puzzle/icon.png
+      - /projects/android-games/pool-puzzle/screenshot-1.png
+      - /projects/android-games/pool-puzzle/screenshot-2.png
+      - /projects/android-games/pool-puzzle/screenshot-3.png
+  - name: "Unswarm"
+    description: "Earth is under attack! Hostile enemy ships are perpetually thrust upon our defenses. In desperation, earth retaliated with their strongest weapon — you."
+    link: "https://www.taptap.io/app/33571672"
+    gallery:
+      - /projects/android-games/unswarm/icon.png
+      - /projects/android-games/unswarm/screenshot-1.png
+      - /projects/android-games/unswarm/screenshot-2.png
+      - /projects/android-games/unswarm/screenshot-3.png
+  - name: "Music Gym"
+    description: "This is the one project I did not publish simply because it did not live up to my standards. Even so, it's a project that I ended up using quite a lot, so I ended up being quite proud of it. It's an education game. It's meant to teach the player to identify notes by ear through the mechanics of 'Simon', and also to teach the player the names of the piano notes themselves using short mini-games. I didn't like the UI that I ended up producing; the game looked rather unpleasant for my liking. But regardless, it has served its role."
+    gallery:
+      - /projects/android-games/music-gym/main-menu.jpg
+      - /projects/android-games/music-gym/simon-setup.jpg
+      - /projects/android-games/music-gym/simon-correct.jpg
+      - /projects/android-games/music-gym/simon-wrong.jpg
+      - /projects/android-games/music-gym/note-matching-how-to-play.jpg
+      - /projects/android-games/music-gym/note-matching-gameplay-c.jpg
+      - /projects/android-games/music-gym/note-matching-gameplay-d.jpg
 ---
 
 I have developed multiple Android games using the Godot game engine. These games were later published to the Google Play Store and one of them (Pool Puzzle) even got downloaded a couple of times!
@@ -22,23 +49,11 @@ Each round is randomized, providing countless ways to stress your skill level. F
 
 - [taptap.io link](https://www.taptap.io/app/312579)
 
-![Pool Puzzle Icon](/projects/android-games/pool-puzzle/icon.png)
-
-![Pool Puzzle Screenshot 1](/projects/android-games/pool-puzzle/screenshot-1.png)
-![Pool Puzzle Screenshot 2](/projects/android-games/pool-puzzle/screenshot-2.png)
-![Pool Puzzle Screenshot 3](/projects/android-games/pool-puzzle/screenshot-3.png)
-
 ## Unswarm
 
 Earth is under attack! Hostile enemy ships are perpetually thrust upon our defenses. In desperation, earth retaliated with their strongest weapon — you.
 
 - [taptap.io link](https://www.taptap.io/app/33571672)
-
-![Unswarm Icon](/projects/android-games/unswarm/icon.png)
-
-![Unswarm Screenshot 1](/projects/android-games/unswarm/screenshot-1.png)
-![Unswarm Screenshot 2](/projects/android-games/unswarm/screenshot-2.png)
-![Unswarm Screenshot 3](/projects/android-games/unswarm/screenshot-3.png)
 
 ## Music Gym
 
@@ -47,14 +62,4 @@ This is the one project I did not publish simply because it did not live up to m
 It's an education game. It's meant to teach the player to identify notes by ear through the mechanics of 'Simon', and also to teach the player the names of the piano notes themselves using short mini-games.
 
 I didn't like the UI that I ended up producing; the game looked rather unpleasant for my liking. But regardless, it has served its role.
-
-![Music Gym Main Menu](/projects/android-games/music-gym/main-menu.jpg)
-
-![Music Gym Simon Setup](/projects/android-games/music-gym/simon-setup.jpg)
-![Music Gym Simon Correct](/projects/android-games/music-gym/simon-correct.jpg)
-![Music Gym Simon Wrong](/projects/android-games/music-gym/simon-wrong.jpg)
-
-![Music Gym Note Matching How to Play](/projects/android-games/music-gym/note-matching-how-to-play.jpg)
-![Music Gym Note Matching Gameplay C](/projects/android-games/music-gym/note-matching-gameplay-c.jpg)
-![Music Gym Note Matching Gameplay D](/projects/android-games/music-gym/note-matching-gameplay-d.jpg)
 
