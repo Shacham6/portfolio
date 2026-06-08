@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
 
 // For gh-pages, set `site` to your GitHub Pages URL.
 // User repo (username.github.io): site = "https://username.github.io"
@@ -7,5 +8,6 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://username.github.io",
   outDir: "dist",
+  integrations: [mdx()],
   // trailingSlash: "always"  // uncomment if you get 404s on direct navigation
 });

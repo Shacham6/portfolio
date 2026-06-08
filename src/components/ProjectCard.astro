@@ -9,7 +9,7 @@ const { project } = Astro.props;
 const { title, description, thumbnail, tags, date } = project.data;
 ---
 
-<a href={`/projects/${project.slug}`} class="card">
+<a href={`/projects/${project.id}`} class="card">
   <div class="thumb">
     {thumbnail ? (
       <img src={thumbnail} alt={title} loading="lazy" />
