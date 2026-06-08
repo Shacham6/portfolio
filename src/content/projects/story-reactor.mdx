@@ -8,23 +8,23 @@ featured: false
 
 import Carousel from "../../components/Carousel.astro";
 
-'Story Reactor' is how I try to *healthily* use AI into help me get into writing.
+Story Reactor is how I try to *healthily* use AI to help me get into writing.
 
-It's a writing platform with an embedded AI agent that has full context of your story. It acts as a beta reader and developmental editor. Use it by asking questions - *any questions* - about narrative structure, pacing, prose, or character arcs, and get back actionable suggestions.
+It's a writing platform with an embedded AI agent that has full context of your story. It acts as a beta reader and developmental editor. Ask it *any question* — about narrative structure, pacing, prose, or character arcs — and get back actionable suggestions.
 
-The website is built with infinite scroll in mind. If I scroll up - I'll be back at the first chapter. Even still it loads instantly exactly at the current revision.
+The editor is built around infinite scroll. Scroll up and you're back at chapter one. Scroll down and you're at the latest revision. Either way, it loads instantly at your current position.
 
 Features:
 
-- An efficient editor for writing.
-- A revision system so that previous changes are not lost. Can mark revisions as 'protected' in order to prevent them from being auto-deleted after culminating 50>.
-- An integrate AI agent that can help you write your dream story and get feedback quickly. It...
-  - Gets the whole context of the story using tiered compacting.
-  - Can offer high-level feedback on the writing as a whole...
-  - ...or feedback on specific paragraphs.
-  - It can even make suggestions. Efficient for rapidly fixing those typos!
-- The project's using OpenRouter which means we can open to experiment with different models, no matter the providers' API.
-- ...We even have A/B tests!
+- A focused editor for long-form writing.
+- A revision system so nothing is ever lost. Revisions can be marked as 'protected' to prevent auto-deletion once the count exceeds 50.
+- An integrated AI agent that helps you write and get feedback fast:
+  - Ingests the full story context using tiered compacting.
+  - Offers high-level feedback on the writing as a whole.
+  - Gives targeted feedback on specific paragraphs.
+  - Suggests edits — great for rapidly fixing typos.
+- Uses OpenRouter, so I can experiment with different models regardless of provider.
+- A/B testing for comparing different AI outputs.
 
 <Carousel images={[
   "/projects/story-reactor/writer_writing.png",
