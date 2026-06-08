@@ -4,6 +4,23 @@ description: "E-reader that serves books *sentence by sentence* in a vertical sc
 tags: ["golang", "html", "javascript", "custom ai agent", "ai-assisted tooling"]
 date: 2024-09-10  # TODO(AI): We'll have to fix the dates
 featured: false
+gallery:
+  - /projects/sentence-reader/sentence_reader_library.png
+  - /projects/sentence-reader/sentence_reader_1.png
+  - /projects/sentence-reader/sentence_reader_2.png
+  - /projects/sentence-reader/sentence_reader_top_menu.png
+  - /projects/sentence-reader/sentence_reader_bottom_menu.png
 ---
 
 E-reader that serves books sentence-by-sentence in a vertical scroll. Built for a focused, addictive reading experience.
+
+The backend is in Go and the webapp itself is pure html & js, without any frameworks. It is deployed in my homelab and served via [Tailscale](https://tailscale.com/) to grant me access from *anywhere* - be it from home or outside.
+
+Features:
+- On-the-spot uploading of `.epub` files.
+- Three color themes.
+- Tracking of the speaker, using an LLM, and different colored background per name; calculated deterministically.
+- Multiple touch zones, tuned for my comfort.
+- The books are downloaded to local storage so that reading is easy even in areas with weak internet.
+
+<!-- TODO(AI): Add a carousel with all the pictures, here. I don't think i want to do development story; it'll just give away the implementation for everyone whilst i want to get hired. -->
