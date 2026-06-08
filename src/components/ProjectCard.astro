@@ -9,7 +9,7 @@ const { project } = Astro.props;
 const { title, description, thumbnail, tags, date } = project.data;
 ---
 
-<a href={`/projects/${project.id}`} class="entry">
+<a href={`${import.meta.env.BASE_URL}projects/${project.id}`} class="entry">
   {thumbnail && (
     <div class="thumb">
       <img src={thumbnail} alt={title} loading="lazy" />

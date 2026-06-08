@@ -6,7 +6,8 @@ import mdx from "@astrojs/mdx";
 // Project repo:                  site = "https://username.github.io/repo-name"
 // Build outputs to `dist/` — deploys via GitHub Actions.
 export default defineConfig({
-  site: "https://username.github.io",
+  site: "https://shacham6.github.io/portfolio/",
+  base: "/portfolio/",
   outDir: "dist",
   integrations: [mdx()],
   // trailingSlash: "always"  // uncomment if you get 404s on direct navigation

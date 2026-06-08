@@ -14,7 +14,7 @@ const { title } = Astro.props;
   <body>
     <header>
       <nav>
-        <a href="/" class="logo">← Home</a>
+        <a href={import.meta.env.BASE_URL} class="logo">← Home</a>
       </nav>
     </header>
 
