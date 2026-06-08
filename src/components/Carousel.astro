@@ -1,0 +1,68 @@
+---
+export interface Props {
+  images: string[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="carousel" tabindex="0">
+  {
+    images.map((src) => (
+      <figure>
+        <img src={src} alt="" loading="lazy" />
+      </figure>
+    ))
+  }
+</div>
+
+<style>
+  .carousel {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0.5rem 0 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #333 transparent;
+  }
+
+  .carousel::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .carousel::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .carousel::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+  }
+
+  figure {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    width: min(80vw, 420px);
+    margin: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #111;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+  }
+
+  @media (min-width: 768px) {
+    figure {
+      width: min(50vw, 360px);
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Gallery from "../components/Gallery.astro";
+import Carousel from "../components/Carousel.astro";
 import VideoEmbed from "../components/VideoEmbed.astro";
 const { entry } = Astro.props;
 const { title, description, gallery, video, tags, date, games } = entry.data;
@@ -29,6 +30,10 @@ const { Content } = await entry.render();
 
     {gallery && gallery.length > 0 && <Gallery images={gallery} />}
 
+    <div class="content">
+      <Content />
+    </div>
+
     {games && games.length > 0 && (
       <div class="games-section">
         {games.map((game) => (
@@ -38,15 +43,11 @@ const { Content } = await entry.render();
               {game.link && <a href={game.link} target="_blank" rel="noopener">taptap.io </a>}
             </div>
             {game.description && <p class="game-desc">{game.description}</p>}
-            {game.gallery && game.gallery.length > 0 && <Gallery images={game.gallery} />}
+            {game.gallery && game.gallery.length > 0 && <Carousel images={game.gallery} />}
           </section>
         ))}
       </div>
     )}
-
-    <div class="content">
-      <Content />
-    </div>
   </article>
 </BaseLayout>
 
