@@ -17,14 +17,14 @@ const sorted = projects.sort((a, b) => {
     <p class="subtitle">Things I have built.</p>
   </section>
 
-  <div class="grid">
+  <div class="list">
     {sorted.map((p) => <ProjectCard project={p} />)}
   </div>
 </BaseLayout>
 
 <style>
   .hero {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   h1 {
@@ -38,15 +38,8 @@ const sorted = projects.sort((a, b) => {
     font-size: 1.1rem;
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 400px) {
-    .grid {
-      grid-template-columns: 1fr;
-    }
+  .list {
+    display: flex;
+    flex-direction: column;
   }
 </style>

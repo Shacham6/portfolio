@@ -9,20 +9,18 @@ const { project } = Astro.props;
 const { title, description, thumbnail, tags, date } = project.data;
 ---
 
-<a href={`/projects/${project.id}`} class="card">
-  <div class="thumb">
-    {thumbnail ? (
+<a href={`/projects/${project.id}`} class="entry">
+  {thumbnail && (
+    <div class="thumb">
       <img src={thumbnail} alt={title} loading="lazy" />
-    ) : (
-      <div class="thumb-placeholder">{title[0]}</div>
-    )}
-  </div>
+    </div>
+  )}
   <div class="info">
     <h2>{title}</h2>
     <p class="desc">{description}</p>
     <div class="meta">
       <time datetime={date.toISOString()}>
-        {date.toLocaleDateString("en-US", { year: "numeric", month: "short" })}
+        {date.toLocaleDateString("en-US", { year: "numeric", month: "long" })}
       </time>
       {tags.length > 0 && (
         <span class="tags">
@@ -31,27 +29,35 @@ const { title, description, thumbnail, tags, date } = project.data;
       )}
     </div>
   </div>
+  <div class="arrow">→</div>
 </a>
 
 <style>
-  .card {
-    display: block;
-    background: #141414;
-    border: 1px solid #222;
-    border-radius: 10px;
-    overflow: hidden;
+  .entry {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #1a1a1a;
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.2s, transform 0.2s;
+    transition: background 0.2s;
   }
 
-  .card:hover {
-    border-color: #444;
-    transform: translateY(-3px);
+  .entry:hover {
+    background: #111;
+  }
+
+  .entry:hover .arrow {
+    opacity: 1;
+    transform: translateX(4px);
   }
 
   .thumb {
-    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+    width: 200px;
+    height: 120px;
+    border-radius: 8px;
     overflow: hidden;
     background: #111;
   }
@@ -63,32 +69,22 @@ const { title, description, thumbnail, tags, date } = project.data;
     display: block;
   }
 
-  .thumb-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    color: #444;
-    font-size: 3rem;
-    font-weight: 700;
-  }
-
   .info {
-    padding: 1rem 1.25rem 1.25rem;
+    flex: 1;
+    min-width: 0;
   }
 
   h2 {
-    font-size: 1.15rem;
+    font-size: 1.35rem;
     font-weight: 600;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
   }
 
   .desc {
     color: #888;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.95rem;
+    line-height: 1.5;
     margin-bottom: 0.6rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -99,7 +95,7 @@ const { title, description, thumbnail, tags, date } = project.data;
   .meta {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
     flex-wrap: wrap;
     font-size: 0.8rem;
     color: #555;
@@ -107,15 +103,41 @@ const { title, description, thumbnail, tags, date } = project.data;
 
   .tags {
     display: flex;
-    gap: 0.3rem;
+    gap: 0.4rem;
     flex-wrap: wrap;
   }
 
   .tag {
     background: #1a1a2e;
     color: #8888cc;
-    padding: 0.1rem 0.45rem;
-    border-radius: 3px;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
     font-size: 0.75rem;
+  }
+
+  .arrow {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    color: #444;
+    opacity: 0;
+    transform: translateX(0);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  @media (max-width: 600px) {
+    .entry {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .thumb {
+      width: 100%;
+      height: 180px;
+    }
+
+    .arrow {
+      display: none;
+    }
   }
 </style>
