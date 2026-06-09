@@ -4,3 +4,5 @@ dist/
 .vscode/
 *.local
 .DS_Store
+*.mp4
+*.log
