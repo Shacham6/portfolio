@@ -8,61 +8,65 @@ featured: true
 
 import Carousel from "../../components/Carousel.astro";
 
-**NOTE:** The game is currently *work in progress* as I'm working on it in my free time.
+**Status:** Work in progress, developed in my free time.
 
-A rogue-lite where everything is hackable — doors, enemies, yourself. Features an in-game terminal where every entity has its own filesystem and runnable commands. Built from scratch: immediate-mode GUI, field-of-view, pathfinding, and deep mechanic interactions.
+A terminal-based roguelike where every entity — doors, enemies, computers — exposes a filesystem and accepts commands. The core challenge: building a complete game engine from scratch using only Go and Raylib, with no additional dependencies.
 
-The development of the game is done with **Go** and **Raylib**, and nothing else. Yes, that means:
+This project demonstrates systems-level programming and algorithmic problem-solving across several domains:
 
-- No game engine.
-- No additional library of any kind.
+**Procedural Generation**
 
-Everything developed here was handmade across evenings that spanned months.
+Dungeon layouts and item placements are generated algorithmically, ensuring each playthrough presents unique spatial challenges.
 
-Here are the features so far:
+<Carousel images={[
+  "/portfolio/projects/rogue-hacking-game/game_procedural_world.png",
+  "/portfolio/projects/rogue-hacking-game/game_procedural_world_2.png",
+  "/portfolio/projects/rogue-hacking-game/game_procedural_world_3.png"
+]} />
 
-- **PROCEDURAL GENERATION:** The game maps will have different layouts and different item placements each time.
+**Terminal Interface**
 
-  <Carousel images={[
-    "/portfolio/projects/rogue-hacking-game/game_procedural_world.png",
-    "/portfolio/projects/rogue-hacking-game/game_procedural_world_2.png",
-    "/portfolio/projects/rogue-hacking-game/game_procedural_world_3.png"
-  ]} />
+Implemented a fully functional in-game terminal that executes commands against a virtual filesystem. Every interactive entity exposes its state through this interface.
 
-- **USE YOUR TERMINAL.** It can run commands!
-  <Carousel images={[
+<Carousel images={[
   "/portfolio/projects/rogue-hacking-game/game_i_have_a_terminal.png"
-  ]}/>
+]} />
 
-- **USE THAT TERMINAL TO CONNECT TO EVERYTHING,** from doors to enemies... If it's a computer, it can be hacked. (Note: Now it's just unprotected access, but planning 'hacking' minigames or forcing password hunts etc.)
+**Network Simulation**
 
-  <Carousel images={[
-    "/portfolio/projects/rogue-hacking-game/game_remote_connections.GIF",
-  ]} />
+Entities can establish connections to other entities, simulating network access. The terminal serves as the primary interface for remote interaction.
 
-- **RUN COMMANDS TO BYPASS OBSTACLES!** It might initially be just unlocked a door, but eventually it'll be a room full of armed guards.
+<Carousel images={[
+  "/portfolio/projects/rogue-hacking-game/game_remote_connections.GIF",
+]} />
 
-  <Carousel images={[
-    "/portfolio/projects/rogue-hacking-game/game_hack_everything.png"
-  ]} />
+**Command-Driven Mechanics**
 
-- **OH, AND EVERYTHING ALSO HAS A FILE-SYSTEM!** You will have to meddle; find passwords in remote servers; edit configuration files and more. They integrate with mechanics!
+Game state changes through terminal commands — unlocking doors, disabling security systems, manipulating entity behavior. The command system integrates directly with game mechanics.
 
-  <Carousel images={[
-    "/portfolio/projects/rogue-hacking-game/game_filesystem.GIF",
-  ]}/>
+<Carousel images={[
+  "/portfolio/projects/rogue-hacking-game/game_hack_everything.png"
+]} />
 
+**Virtual Filesystem**
 
-That's the premise of the game. Technologically, though, there's a lot more that's been happening. The project included:
+Each entity maintains its own filesystem with configuration files, passwords, and state data. Players interact with these systems to progress, creating emergent gameplay through file manipulation.
 
-- Implementing a real-time immediate-mode GUI framework.
-- Implementing "vision" for entities via the shadowcast algorithm.
-- Implementing `A*` - which is a pathfinding algoritm, to allow entities to navigate through the rooms correctly.
+<Carousel images={[
+  "/portfolio/projects/rogue-hacking-game/game_filesystem.GIF",
+]} />
 
-  Everything *from scratch*.
+**Technical Implementation**
 
-  <Carousel images={[
-    "/portfolio/projects/rogue-hacking-game/game_chase_rendered.GIF",
-    "/portfolio/projects/rogue-hacking-game/game_manually_implement_vision_via_shadowcast.png",
-    "/portfolio/projects/rogue-hacking-game/game_pathfinding.png",
-  ]} />
+Beyond game mechanics, this project required implementing several core systems from scratch:
+
+- **Immediate-mode GUI framework** — real-time interface rendering without retained-mode overhead
+- **Shadowcast algorithm** — field-of-view calculation for entity vision and line-of-sight
+- **A\* (A-star) pathfinding** — entity navigation through procedurally generated spaces
+- **Entity Behavior Tree (Game AI)** - turning the entities into proper characters, with routines and exceptional behaviors
+
+<Carousel images={[
+  "/portfolio/projects/rogue-hacking-game/game_chase_rendered.GIF",
+  "/portfolio/projects/rogue-hacking-game/game_manually_implement_vision_via_shadowcast.png",
+  "/portfolio/projects/rogue-hacking-game/game_pathfinding.png",
+]} />
